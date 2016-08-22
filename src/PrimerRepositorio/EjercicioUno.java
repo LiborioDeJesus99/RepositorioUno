@@ -69,6 +69,11 @@ public class EjercicioUno extends javax.swing.JFrame {
         jLabel4.setText("Tercera Persona");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 120, -1));
 
+        txtPrimeraPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrimeraPersonaActionPerformed(evt);
+            }
+        });
         txtPrimeraPersona.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPrimeraPersonaKeyTyped(evt);
@@ -104,6 +109,11 @@ public class EjercicioUno extends javax.swing.JFrame {
         jPanel2.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
         jPanel2.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 250, 170));
@@ -133,6 +143,7 @@ public class EjercicioUno extends javax.swing.JFrame {
         jLabel8.setText("Cantidad Total");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 100, -1));
 
+        txtRes.setEditable(false);
         txtRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtResActionPerformed(evt);
@@ -227,12 +238,14 @@ public class EjercicioUno extends javax.swing.JFrame {
             } else if (Tercero == Primero) {
                 JOptionPane.showMessageDialog(this, "Digite Por Favor Una Cantidad Distinta", "Error", JOptionPane.ERROR_MESSAGE);
                 txtTerceraPersona.requestFocusInWindow();
+            } else {
+
+                Oper = Primero + Segundo + Tercero;
+                Oper1 = (Primero * 100) / Oper;
+                Oper2 = (Segundo * 100) / Oper;
+                Oper3 = (Tercero * 100) / Oper;
             }
 
-            Oper = Primero + Segundo + Tercero;
-            Primero = (Primero * 100) / Oper;
-            Segundo = (Segundo * 100) / Oper;
-            Tercero = (Tercero * 100) / Oper;
 
         }
         Total = String.valueOf(Oper);
@@ -244,6 +257,23 @@ public class EjercicioUno extends javax.swing.JFrame {
         tres = String.valueOf(Oper3 + "%");
         txtPersona3.setText(tres);
     }//GEN-LAST:event_cmdCalcularActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+
+        txtPrimeraPersona.setText("");
+        txtSegundaPersona.setText("");
+        txtTerceraPersona.setText("");
+        txtPersona1.setText("");
+        txtPersona2.setText("");
+        txtPersona3.setText("");
+        txtRes.setText("");
+
+        txtPrimeraPersona.requestFocusInWindow();
+    }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void txtPrimeraPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrimeraPersonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrimeraPersonaActionPerformed
 
     /**
      * @param args the command line arguments
